@@ -7,7 +7,7 @@ console.log(dateTime);
 
 function setTime() {
     let clock = setInterval(function() {
-        dateTime.text(moment().format("MMMM Do YYYY, h:mm:ss a")) 
+        dateTime.text(moment().format("MMMM Do YYYY , h:mm:ss a")) 
     }, 1000); 
 };
 
