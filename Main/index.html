@@ -29,13 +29,22 @@
       
       <div class="row"> <!-- Row 1-->
         <!-- Card component with directions and button -->
-        <div class="card border-danger flex-row">
+        <div class="card border-danger">
+          
+          <!-- Instructions -->
           <div
-            class="col-4 m-2 d-flex justify-content-center align-content-center"
-          >
-            Press this button for form. -->
+            class="">
+            Please fill out form with these topics. 
           </div>
-          <div class="col-4 d-flex justify-content-center m-2">
+
+          <!-- List of properties the form will contain  -->
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+          </ul>
+
+          <div class="">
             <button type="button" data-toggle="modal" data-target="#modalForm" class="btn btn-primary">
               Button
             </button>
