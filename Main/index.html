@@ -17,9 +17,10 @@
   </head>
 
   <body>
-    <header class="hero container display-5">
+    <header class="hero container display-6 bg-light">
       <!-- Need information to show current time and date using moment-->
-      <section class="">Project Tracker</section>
+      <section class="mb-4">Project Tracker</section>
+      <section >Current Date & Time: </section>
       <section class="dateTime"></section>
     </header>
 
@@ -27,7 +28,7 @@
     <main class="container">
 
       
-      <div class="row justify-content-center d-flex"> <!-- Row 1-->
+      <div class="row justify-content-center d-flex" > <!-- Row 1-->
         <!-- Card component with directions and button -->
         <div class="col-12 col-md-3 card border-danger">
           
@@ -53,19 +54,29 @@
             </button>
           </div>
         </div>
+
         <!-- Modal -->
         <div class="modal fade" id="modalForm" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content"> <!--Modal-Content-->
               <div class="modal-header"> <!--Modal-Header-->
-                <h5 class="modal-title" id="modalTitle">Modal title</h5>
+                <h5 class="modal-title" id="modalTitle">Please fill out this form</h5>
                 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
              
               </div> <!--End Modal-Header -->
-              <div class="modal-body">...</div>
+              <div class="modal-body"> <!--Modal-Body-->
+                <form> <!--Modal-Form-->
+                  <div class="mb-3">
+                    <label for="project-name" class="col-form-label">Project name</label>
+                    <input type="text" class="form-control" id="project-name">
+                  </div>
+
+
+                </form><!--End modal-body-->
+              </div><!--End modal-body-->
 
               <div class="modal-footer"> <!-- Modal-Footer-->
                 <button
@@ -82,6 +93,11 @@
       </div> <!--Row 1 End-->
 
       <div class="row"> <!--Row 2-->
+
+      <!-- Need to complete form in modal-->
+      <!-- How to integrate forms into modals-->
+      <!-- When dynamically creating list of projects give key\id and connect through parent element-->
+      <!-- Try to add a delete functions to projects-->
 
       </div> <!--Row 2 End-->
 
