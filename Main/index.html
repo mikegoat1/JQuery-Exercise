@@ -69,19 +69,30 @@
               </div> <!--End Modal-Header -->
               <div class="modal-body"> <!--Modal-Body-->
                 <form> <!--Modal-Form-->
+                    <!--Modal-Form-Input -->
                   <div class="mb-3">
                     <label for="project-name" class="col-form-label">Project name</label>
                     <input type="text" class="form-control" id="project-name">
                   </div>
-
+                  <!-- Modal-Form-Select -->
                   <label for="project-type" class="col-form-label">Project type</label>
-                  <select class="form-select" aria-label="Default select example" id="project-type" >
+                  <select class="form-select mb-4" aria-label="Default select example" id="project-type" >
                     <option selected> - - - - - -</option>
                     <option value="Full-Stack Development">Full-Stack Development</option>
                     <option value="Front-End">Front-End</option>
                     <option value="Back-End">Back-End</option>
                     <option value="UX/UI">UX/UI</option>
+                    <opiton value="Mobile Application">Mobile Application</opiton>
                   </select>
+                  <!-- Modal-Form-Input-Rate -->
+                  <label for="hourly-wage" class="col-form-label">Hourly wage</label>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">$</span>
+                    <input type="text" class="form-control" id="hourly-wage" aria-label="Amount (to the nearest dollar)">
+                    <span class="input-group-text">.00</span>
+                  </div>
+
+
 
 
                 </form><!--End modal-body-->
