@@ -2,16 +2,13 @@
 let dateTime = $(".dateTime");
 
 
-// Set up a setinterval() fuction so you can update the text in the hero. 
-// Every second update the format of moment with a new version of info
-
-
-
-
-
+// Set up setInterval function to update text in hero. 
+    // keep the update instantly
 function setTime() {
     let clock = setInterval(function () {
         dateTime.text(moment().format("MMMM Do YYYY , h:mm:ss a"))
     }, 0);
 };
 setTime();
+
+
