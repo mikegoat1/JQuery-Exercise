@@ -18,4 +18,9 @@ $("#date-picker").datepicker();
 // next thing you need to do is make sure you can grab the value out of these inputs
 
 const projectName = $("#project-name").val();
-console.log(projectName); 
+
+function handleFormSubmit(event) {
+    event.preventDefault();
+    
+
+}
