@@ -11,4 +11,6 @@ function setTime() {
 };
 setTime();
 
+// Function for widget of datepicker
 
+$("#date-picker").datepicker(); 
