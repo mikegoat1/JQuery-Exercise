@@ -1,6 +1,7 @@
 // Create a variable that connects to the hero class in the header. Or that connects to the dateTime class
 const dateTime = $(".dateTime");
 const modalSubmit = $("#submit"); 
+const modalForm1 = $("#modalForm"); 
 
 
 
@@ -29,7 +30,8 @@ function handleFormSubmit(event) {
     const hourlyWage = $("#hourly-wage").val();
     const datePicker = $("#date-picker").val(); 
 
-    console.log($("project-name")); 
+    $("select option[value='']").attr("selected", true); 
+    $("#modalForm input[type='text']").val('');
     console.log(projectName); 
     console.log(projectType); 
     console.log(hourlyWage); 
