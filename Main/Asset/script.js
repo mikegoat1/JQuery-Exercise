@@ -1,5 +1,7 @@
 // Create a variable that connects to the hero class in the header. Or that connects to the dateTime class
-let dateTime = $(".dateTime");
+const dateTime = $(".dateTime");
+const modalSubmit = $("#submit"); 
+
 
 
 // Set up setInterval function to update text in hero. 
@@ -18,6 +20,7 @@ $("#date-picker").datepicker();
 // next thing you need to do is make sure you can grab the value out of these inputs
 
 
+
 function handleFormSubmit(event) {
     event.preventDefault();
 
@@ -26,6 +29,15 @@ function handleFormSubmit(event) {
     const hourlyWage = $("#hourly-wage").val();
     const datePicker = $("#date-picker").val(); 
 
+    console.log($("project-name")); 
+    console.log(projectName); 
+    console.log(projectType); 
+    console.log(hourlyWage); 
+    console.log(datePicker); 
+
     
 
+
 }
+console.log(modalSubmit)
+modalSubmit.on("click", handleFormSubmit); 
