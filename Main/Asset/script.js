@@ -29,9 +29,10 @@ function handleFormSubmit(event) {
     const projectType = $("#project-type").val();
     const hourlyWage = $("#hourly-wage").val();
     const datePicker = $("#date-picker").val(); 
-
+    // resetting input after recorded. 
     $("select option[value='']").attr("selected", true); 
     $("#modalForm input[type='text']").val('');
+    
     console.log(projectName); 
     console.log(projectType); 
     console.log(hourlyWage); 
