@@ -32,7 +32,8 @@ function handleFormSubmit(event) {
     // resetting input after recorded. 
     $("select option[value='']").attr("selected", true); 
     $("#modalForm input[type='text']").val('');
-    
+    //  create and add elements dynamically to the table. 
+    //  Run function to calculate input. ß
     console.log(projectName); 
     console.log(projectType); 
     console.log(hourlyWage); 
