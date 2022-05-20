@@ -19,20 +19,37 @@ setTime();
 $("#date-picker").datepicker();
 
 function creatingTable (name, type, wage, date) {
+
 let tableRow = $("<tr>"); 
 dataEntry.append(tableRow); 
+
 let nameData = $("<td>"); 
 nameData.text(name);
 tableRow.append(nameData); 
+
 let typeData = $("<td>"); 
 typeData.text(type); 
 tableRow.append(typeData);
+
+let wageData = $("<td>"); 
+wageData.text(wage); 
+tableRow.append(wageData); 
+
+let dueDateData = $("<td>"); 
+dueDateData.text(date); 
+tableRow.append(dueDateData); 
+
+// I need to use moment to compare the due date and current date.
+let daysUntilData = $("<td>"); 
+
 
 }
 
 function handleTotalWage (){}
 
-function handleDueDate (){}
+function handleDaysUntil (date){
+    
+}
 
 // next thing you need to do is make sure you can grab the value out of these inputs
 function handleFormSubmit(event) {
