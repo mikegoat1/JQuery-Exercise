@@ -2,6 +2,7 @@
 const dateTime = $(".dateTime");
 const modalSubmit = $("#submit"); 
 const modalForm1 = $("#modalForm"); 
+const dataEntry = $("#table"); 
 
 
 
@@ -18,7 +19,14 @@ setTime();
 $("#date-picker").datepicker();
 
 function creatingTable (name, type, wage, date) {
-
+let tableRow = $("<tr>"); 
+dataEntry.append(tableRow); 
+let nameData = $("<td>"); 
+nameData.text(name);
+tableRow.append(nameData); 
+let typeData = $("<td>"); 
+typeData.text(type); 
+tableRow.append(typeData);
 
 }
 
