@@ -15,13 +15,18 @@ function setTime() {
 setTime();
 
 // Function for widget of datepicker
-
 $("#date-picker").datepicker();
 
+function creatingTable (name, type, wage, date) {
+
+
+}
+
+function handleTotalWage (){}
+
+function handleDueDate (){}
+
 // next thing you need to do is make sure you can grab the value out of these inputs
-
-
-
 function handleFormSubmit(event) {
     event.preventDefault();
 
@@ -33,14 +38,15 @@ function handleFormSubmit(event) {
     $("select option[value='']").attr("selected", true); 
     $("#modalForm input[type='text']").val('');
     //  create and add elements dynamically to the table. 
-    //  Run function to calculate input. ß
+    //  Run function to calculate input. 
+    //  When creating make sure to set to local storage
+        // may be able to if we cycle through a set amount of indexs to be in the table row
+
+
     console.log(projectName); 
     console.log(projectType); 
     console.log(hourlyWage); 
     console.log(datePicker); 
-
-    
-
 
 }
 console.log(modalSubmit)
