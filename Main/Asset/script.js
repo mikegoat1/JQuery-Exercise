@@ -48,7 +48,7 @@ let daysUntilData = $("<td>");
 function handleTotalWage (){}
 
 function handleDaysUntil (date){
-    
+
 }
 
 // next thing you need to do is make sure you can grab the value out of these inputs
@@ -74,5 +74,7 @@ function handleFormSubmit(event) {
     console.log(datePicker); 
 
 }
-console.log(modalSubmit)
+
+console.log(moment()); 
+
 modalSubmit.on("click", handleFormSubmit); 
