@@ -41,6 +41,8 @@ tableRow.append(dueDateData);
 
 // I need to use moment to compare the due date and current date.
 let daysUntilData = $("<td>"); 
+daysUntilData.text(handleDaysUntil(dueDateData))
+tableRow.append(daysUntilData); 
 
 
 }
@@ -48,7 +50,10 @@ let daysUntilData = $("<td>");
 function handleTotalWage (){}
 
 function handleDaysUntil (date){
-
+    let dayDifference =  moment(date , "MM-D-YYYY").diff(moment(), "days"); 
+    dayDifference = 1 + dayDifference; 
+    console.log("Day difference:", dayDifference); 
+    return dayDifference; 
 }
 
 // next thing you need to do is make sure you can grab the value out of these inputs
@@ -74,6 +79,9 @@ function handleFormSubmit(event) {
     console.log(hourlyWage); 
     console.log(datePicker); 
     console.log("Curren day:", moment("12-25-1995", "MM-D-YYYY").format("MM-DD-YYYY"))
+
+
+    
     // Experiment to get the diff function to give the correct number of days. 
     let dayDifference =  moment(datePicker , "MM-D-YYYY").diff(moment(), "days"); 
     dayDifference = 1 + dayDifference; 
