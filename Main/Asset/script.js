@@ -1,8 +1,8 @@
 // Create a variable that connects to the hero class in the header. Or that connects to the dateTime class
 const dateTime = $(".dateTime");
-const modalSubmit = $("#submit"); 
-const modalForm1 = $("#modalForm"); 
-const dataEntry = $("#table"); 
+const modalSubmit = $("#submit");
+const modalForm1 = $("#modalForm");
+const dataEntry = $("#table");
 
 
 
@@ -18,42 +18,42 @@ setTime();
 // Function for widget of datepicker
 $("#date-picker").datepicker();
 
-function creatingTable (name, type, wage, date) {
+function creatingTable(name, type, wage, date) {
 
-let tableRow = $("<tr>"); 
-dataEntry.append(tableRow); 
+    let tableRow = $("<tr>");
+    dataEntry.append(tableRow);
 
-let nameData = $("<td>"); 
-nameData.text(name);
-tableRow.append(nameData); 
+    let nameData = $("<td>");
+    nameData.text(name);
+    tableRow.append(nameData);
 
-let typeData = $("<td>"); 
-typeData.text(type); 
-tableRow.append(typeData);
+    let typeData = $("<td>");
+    typeData.text(type);
+    tableRow.append(typeData);
 
-let wageData = $("<td>"); 
-wageData.text(wage); 
-tableRow.append(wageData); 
+    let wageData = $("<td>");
+    wageData.text(wage);
+    tableRow.append(wageData);
 
-let dueDateData = $("<td>"); 
-dueDateData.text(date); 
-tableRow.append(dueDateData); 
+    let dueDateData = $("<td>");
+    dueDateData.text(date);
+    tableRow.append(dueDateData);
 
-// I need to use moment to compare the due date and current date.
-let daysUntilData = $("<td>"); 
-daysUntilData.text(handleDaysUntil(dueDateData))
-tableRow.append(daysUntilData); 
+    // I need to use moment to compare the due date and current date.
+    let daysUntilData = $("<td>");
+    daysUntilData.text(handleDaysUntil(dueDateData))
+    tableRow.append(daysUntilData);
 
 
 }
 
-function handleTotalWage (){}
+function handleTotalWage() { }
 
-function handleDaysUntil (date){
-    let dayDifference =  moment(date , "MM-D-YYYY").diff(moment(), "days"); 
-    dayDifference = 1 + dayDifference; 
-    console.log("Day difference:", dayDifference); 
-    return dayDifference; 
+function handleDaysUntil(date) {
+    let dayDifference = moment(date, "MM-D-YYYY").diff(moment(), "days");
+    dayDifference = 1 + dayDifference;
+    console.log("Day difference:", dayDifference);
+    return dayDifference;
 }
 
 // next thing you need to do is make sure you can grab the value out of these inputs
@@ -63,31 +63,31 @@ function handleFormSubmit(event) {
     const projectName = $("#project-name").val();
     const projectType = $("#project-type").val();
     const hourlyWage = $("#hourly-wage").val();
-    const datePicker = $("#date-picker").val(); 
+    const datePicker = $("#date-picker").val();
     // resetting input after recorded. 
-    $("select option[value='']").attr("selected", true); 
+    $("select option[value='']").attr("selected", true);
     $("#modalForm input[type='text']").val('');
 
     //  create and add elements dynamically to the table. 
     //  Run function to calculate input. 
     //  When creating make sure to set to local storage
-        // may be able to if we cycle through a set amount of indexs to be in the table row
+    // may be able to if we cycle through a set amount of indexs to be in the table row
 
 
-    console.log(projectName); 
-    console.log(projectType); 
-    console.log(hourlyWage); 
-    console.log(datePicker); 
+    console.log(projectName);
+    console.log(projectType);
+    console.log(hourlyWage);
+    console.log(datePicker);
     console.log("Curren day:", moment("12-25-1995", "MM-D-YYYY").format("MM-DD-YYYY"))
 
 
-    
-    // Experiment to get the diff function to give the correct number of days. 
-    let dayDifference =  moment(datePicker , "MM-D-YYYY").diff(moment(), "days"); 
-    dayDifference = 1 + dayDifference; 
-    console.log("Day difference:", dayDifference); 
 
-    console.log("Difference:" , moment(datePicker , "MM-D-YYYY").diff(moment(), "days"))
+    // Experiment to get the diff function to give the correct number of days. 
+    let dayDifference = moment(datePicker, "MM-D-YYYY").diff(moment(), "days");
+    dayDifference = 1 + dayDifference;
+    console.log("Day difference:", dayDifference);
+
+    console.log("Difference:", moment(datePicker, "MM-D-YYYY").diff(moment(), "days"))
 
 
 }
