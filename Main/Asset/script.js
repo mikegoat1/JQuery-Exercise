@@ -78,7 +78,6 @@ function handleFormSubmit(event) {
     console.log("Project Type", projectType);
     console.log("Hourly Wage", hourlyWage);
     console.log("Date Picked", datePicker);
-
     // Experiment to get the diff function to give the correct number of days. 
     let dayDifference = moment(datePicker, "MM-D-YYYY").diff(moment(), "days");
     dayDifference = 1 + dayDifference;
@@ -87,8 +86,37 @@ function handleFormSubmit(event) {
     // (hourlyWage x 8) x dayDifference is Wage 
     console.log("Wage", (hourlyWage * 8) * dayDifference)
     // This is Wage 
-    let Wage = (hourlyWage * 8) * dayDifference;
-    console.log("Checking Wage", Wage);
+    let wage = (hourlyWage * 8) * dayDifference;
+    console.log("Checking Wage", wage);
+
+
+    // Creating the Row
+    let tableRow = $("<tr>"); 
+    $("#table").append(tableRow); 
+    // Creating Name
+    let tableDataName = $("<td>");
+    tableDataName.text(projectName); 
+    $(tableRow).append(tableDataName); 
+    // Creating Type 
+    let tableDataType = $("<td>"); 
+    tableDataType.text(projectType); 
+    $(tableRow).append(tableDataType); 
+    // Creating Hourly Wage
+    let tableDataHourly = $("<td>"); 
+    tableDataHourly.text("$" + hourlyWage); 
+    $(tableRow).append(tableDataHourly); 
+    // Creating Due Date 
+    let tableDataPicked = $("<td>"); 
+    tableDataPicked.text(datePicker); 
+    $(tableRow).append(tableDataPicked); 
+    // Creating Day Difference 
+    let tableDataDiff = $("<td>"); 
+    tableDataDiff.text(dayDifference + " days"); 
+    $(tableRow).append(tableDataDiff); 
+    // Creating Wage
+    let tableDataWage = $("<td>"); 
+    tableDataWage.text("$" + wage); 
+    $(tableRow).append(tableDataWage); 
 
     
 
