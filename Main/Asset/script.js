@@ -128,14 +128,22 @@ function handleFormSubmit(event) {
 
 
     // Once you finish you want to push into local storage and then save. 
+    let retrieveData = JSON.parse(localStorage.getItem("Data"));
+    console.log(retrieveData);
+    if (retrieveData === null) {
+        dataArray = [];
+    } else {
+        dataArray = retrieveData;
+    }
 
-    
+
     dataArray.push(projectName, projectType, hourlyWage, datePicker, dayDifference, wage, "X");
-    localStorage.setItem("Data", JSON.stringify(dataArray)); 
+    localStorage.setItem("Data", JSON.stringify(dataArray));
     console.log(JSON.parse(localStorage.getItem("Data")))
+
     // dataArray.push(JSON.parse(localStorage.getItem("Data")))
 
-    
+
 
 }
 console.log("Example:", moment("12-25-1995", "MM-DD-YYYY").format("MMM Do, YYYY"))
