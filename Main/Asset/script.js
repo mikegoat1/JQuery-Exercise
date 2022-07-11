@@ -97,42 +97,6 @@ function handleFormSubmit(event) {
     console.log("Checking Wage", wage);
 
     creatingTable(projectName,projectType,hourlyWage,datePicker,dayDifference,wage); 
-    
-    // Creating the Row
-    let tableRow = $("<tr>");
-    $("#table").append(tableRow);
-    // Creating Name
-    let tableDataName = $("<td>");
-    tableDataName.text(projectName);
-    $(tableRow).append(tableDataName);
-    // Creating Type 
-    let tableDataType = $("<td>");
-    tableDataType.text(projectType);
-    $(tableRow).append(tableDataType);
-    // Creating Hourly Wage
-    let tableDataHourly = $("<td>");
-    tableDataHourly.text("$" + hourlyWage);
-    $(tableRow).append(tableDataHourly);
-    // Creating Due Date 
-    let tableDataPicked = $("<td>");
-    tableDataPicked.text(datePicker);
-    $(tableRow).append(tableDataPicked);
-    // Creating Day Difference 
-    let tableDataDiff = $("<td>");
-    tableDataDiff.text(dayDifference + " days");
-    $(tableRow).append(tableDataDiff);
-    // Creating Wage
-    let tableDataWage = $("<td>");
-    tableDataWage.text("$" + wage);
-    $(tableRow).append(tableDataWage);
-    // Creating Exit
-    let tableDataExit = $("<td>");
-    let tableDataBtn = $("<button>");
-    tableDataBtn.text("X");
-    $(tableDataExit).append(tableDataBtn);
-    $(tableRow).append(tableDataExit);
-
-
 
     // Grabbing localstoragae and setting to array 
     let retrieveData = JSON.parse(localStorage.getItem("Data"));
@@ -154,3 +118,7 @@ function handleFormSubmit(event) {
 
 }
 modalSubmit.on("click", handleFormSubmit); 
+
+
+//Create a Initi for setting up table from local storage 
+//Thinking of looping through 
