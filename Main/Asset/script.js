@@ -19,41 +19,52 @@ setTime();
 // Function for widget of datepicker
 $("#date-picker").datepicker();
 
-function creatingTable(name, type, wage, date) {
+function creatingTable(name, type, hourly, date, diff, wage) {
 
     let tableRow = $("<tr>");
-    dataEntry.append(tableRow);
-
-    let nameData = $("<td>");
-    nameData.text(name);
-    tableRow.append(nameData);
-
-    let typeData = $("<td>");
-    typeData.text(type);
-    tableRow.append(typeData);
-
-    let wageData = $("<td>");
-    wageData.text(wage);
-    tableRow.append(wageData);
-
-    let dueDateData = $("<td>");
-    dueDateData.text(date);
-    tableRow.append(dueDateData);
-
-    // I need to use moment to compare the due date and current date.
-    let daysUntilData = $("<td>");
-    daysUntilData.text(handleDaysUntil(dueDateData))
-    tableRow.append(daysUntilData);
+    $("#table").append(tableRow);
+    // Creating Name
+    let tableDataName = $("<td>");
+    tableDataName.text(name);
+    $(tableRow).append(tableDataName);
+    // Creating Type 
+    let tableDataType = $("<td>");
+    tableDataType.text(type);
+    $(tableRow).append(tableDataType);
+    // Creating Hourly Wage
+    let tableDataHourly = $("<td>");
+    tableDataHourly.text("$" + hourly);
+    $(tableRow).append(tableDataHourly);
+    // Creating Due Date 
+    let tableDataPicked = $("<td>");
+    tableDataPicked.text(date);
+    $(tableRow).append(tableDataPicked);
+    // Creating Day Difference 
+    let tableDataDiff = $("<td>");
+    tableDataDiff.text(diff + " days");
+    $(tableRow).append(tableDataDiff);
+    // Creating Wage
+    let tableDataWage = $("<td>");
+    tableDataWage.text("$" + wage);
+    $(tableRow).append(tableDataWage);
+    // Creating Exit
+    let tableDataExit = $("<td>");
+    let tableDataBtn = $("<button>");
+    tableDataBtn.text("X");
+    $(tableDataExit).append(tableDataBtn);
+    $(tableRow).append(tableDataExit);
 
 
 }
 
-function handleTotalWage() { }
+function handleTotalWage(day, hourly) {
+    let wage = (hourly * 8) * day;
+    return wage;
+}
 
 function handleDaysUntil(date) {
     let dayDifference = moment(date, "MM-D-YYYY").diff(moment(), "days");
     dayDifference = 1 + dayDifference;
-    console.log("Day difference:", dayDifference);
     return dayDifference;
 }
 
@@ -65,6 +76,9 @@ function handleFormSubmit(event) {
     const projectType = $("#project-type").val();
     const hourlyWage = $("#hourly-wage").val();
     const datePicker = $("#date-picker").val();
+    let dayDifference = handleDaysUntil(datePicker);
+    const wage = handleTotalWage(dayDifference, hourlyWage);
+
     // resetting input after recorded. 
     $("select option[value='']").attr("selected", true);
     $("#modalForm input[type='text']").val('');
@@ -79,18 +93,11 @@ function handleFormSubmit(event) {
     console.log("Project Type", projectType);
     console.log("Hourly Wage", hourlyWage);
     console.log("Date Picked", datePicker);
-    // Experiment to get the diff function to give the correct number of days. 
-    let dayDifference = moment(datePicker, "MM-D-YYYY").diff(moment(), "days");
-    dayDifference = 1 + dayDifference;
     console.log("Day difference:", dayDifference);
-
-    // (hourlyWage x 8) x dayDifference is Wage 
-    console.log("Wage", (hourlyWage * 8) * dayDifference)
-    // This is Wage 
-    const wage = (hourlyWage * 8) * dayDifference;
     console.log("Checking Wage", wage);
 
-
+    creatingTable(projectName,projectType,hourlyWage,datePicker,dayDifference,wage); 
+    
     // Creating the Row
     let tableRow = $("<tr>");
     $("#table").append(tableRow);
@@ -127,7 +134,7 @@ function handleFormSubmit(event) {
 
 
 
-    // Once you finish you want to push into local storage and then save. 
+    // Grabbing localstoragae and setting to array 
     let retrieveData = JSON.parse(localStorage.getItem("Data"));
     console.log(retrieveData);
     if (retrieveData === null) {
@@ -136,7 +143,7 @@ function handleFormSubmit(event) {
         dataArray = retrieveData;
     }
 
-
+    // updating array with new items. 
     dataArray.push(projectName, projectType, hourlyWage, datePicker, dayDifference, wage, "X");
     localStorage.setItem("Data", JSON.stringify(dataArray));
     console.log(JSON.parse(localStorage.getItem("Data")))
@@ -146,5 +153,4 @@ function handleFormSubmit(event) {
 
 
 }
-console.log("Example:", moment("12-25-1995", "MM-DD-YYYY").format("MMM Do, YYYY"))
 modalSubmit.on("click", handleFormSubmit); 
