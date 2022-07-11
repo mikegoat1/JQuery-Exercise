@@ -117,6 +117,12 @@ function handleFormSubmit(event) {
     let tableDataWage = $("<td>"); 
     tableDataWage.text("$" + wage); 
     $(tableRow).append(tableDataWage); 
+    // Creating Exit
+    let tableDataExit = $("<td>"); 
+    let tableDataBtn = $("<button>"); 
+    tableDataBtn.text("X"); 
+    $(tableDataExit).append(tableDataBtn); 
+    $(tableRow).append(tableDataExit); 
 
     
 
