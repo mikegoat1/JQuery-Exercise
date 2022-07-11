@@ -3,6 +3,7 @@ const dateTime = $(".dateTime");
 const modalSubmit = $("#submit");
 const modalForm1 = $("#modalForm");
 const dataEntry = $("#table");
+let dataArray = []
 
 
 
@@ -86,47 +87,55 @@ function handleFormSubmit(event) {
     // (hourlyWage x 8) x dayDifference is Wage 
     console.log("Wage", (hourlyWage * 8) * dayDifference)
     // This is Wage 
-    let wage = (hourlyWage * 8) * dayDifference;
+    const wage = (hourlyWage * 8) * dayDifference;
     console.log("Checking Wage", wage);
 
 
     // Creating the Row
-    let tableRow = $("<tr>"); 
-    $("#table").append(tableRow); 
+    let tableRow = $("<tr>");
+    $("#table").append(tableRow);
     // Creating Name
     let tableDataName = $("<td>");
-    tableDataName.text(projectName); 
-    $(tableRow).append(tableDataName); 
+    tableDataName.text(projectName);
+    $(tableRow).append(tableDataName);
     // Creating Type 
-    let tableDataType = $("<td>"); 
-    tableDataType.text(projectType); 
-    $(tableRow).append(tableDataType); 
+    let tableDataType = $("<td>");
+    tableDataType.text(projectType);
+    $(tableRow).append(tableDataType);
     // Creating Hourly Wage
-    let tableDataHourly = $("<td>"); 
-    tableDataHourly.text("$" + hourlyWage); 
-    $(tableRow).append(tableDataHourly); 
+    let tableDataHourly = $("<td>");
+    tableDataHourly.text("$" + hourlyWage);
+    $(tableRow).append(tableDataHourly);
     // Creating Due Date 
-    let tableDataPicked = $("<td>"); 
-    tableDataPicked.text(datePicker); 
-    $(tableRow).append(tableDataPicked); 
+    let tableDataPicked = $("<td>");
+    tableDataPicked.text(datePicker);
+    $(tableRow).append(tableDataPicked);
     // Creating Day Difference 
-    let tableDataDiff = $("<td>"); 
-    tableDataDiff.text(dayDifference + " days"); 
-    $(tableRow).append(tableDataDiff); 
+    let tableDataDiff = $("<td>");
+    tableDataDiff.text(dayDifference + " days");
+    $(tableRow).append(tableDataDiff);
     // Creating Wage
-    let tableDataWage = $("<td>"); 
-    tableDataWage.text("$" + wage); 
-    $(tableRow).append(tableDataWage); 
+    let tableDataWage = $("<td>");
+    tableDataWage.text("$" + wage);
+    $(tableRow).append(tableDataWage);
     // Creating Exit
-    let tableDataExit = $("<td>"); 
-    let tableDataBtn = $("<button>"); 
-    tableDataBtn.text("X"); 
-    $(tableDataExit).append(tableDataBtn); 
-    $(tableRow).append(tableDataExit); 
+    let tableDataExit = $("<td>");
+    let tableDataBtn = $("<button>");
+    tableDataBtn.text("X");
+    $(tableDataExit).append(tableDataBtn);
+    $(tableRow).append(tableDataExit);
 
-    
+
 
     // Once you finish you want to push into local storage and then save. 
+
+    
+    dataArray.push(projectName, projectType, hourlyWage, datePicker, dayDifference, wage, "X");
+    localStorage.setItem("Data", JSON.stringify(dataArray)); 
+    console.log(JSON.parse(localStorage.getItem("Data")))
+    // dataArray.push(JSON.parse(localStorage.getItem("Data")))
+
+    
 
 }
 console.log("Example:", moment("12-25-1995", "MM-DD-YYYY").format("MMM Do, YYYY"))
