@@ -74,21 +74,25 @@ function handleFormSubmit(event) {
     // may be able to if we cycle through a set amount of indexs to be in the table row
 
 
-    console.log(projectName);
-    console.log(projectType);
-    console.log(hourlyWage);
-    console.log(datePicker);
-    console.log("Curren day:", moment("12-25-1995", "MM-D-YYYY").format("MM-DD-YYYY"))
-
-
+    console.log("Project Name", projectName);
+    console.log("Project Type", projectType);
+    console.log("Hourly Wage", hourlyWage);
+    console.log("Date Picked", datePicker);
 
     // Experiment to get the diff function to give the correct number of days. 
     let dayDifference = moment(datePicker, "MM-D-YYYY").diff(moment(), "days");
     dayDifference = 1 + dayDifference;
     console.log("Day difference:", dayDifference);
 
-    console.log("Difference:", moment(datePicker, "MM-D-YYYY").diff(moment(), "days"))
+    // (hourlyWage x 8) x dayDifference is Wage 
+    console.log("Wage", (hourlyWage * 8) * dayDifference)
+    // This is Wage 
+    let Wage = (hourlyWage * 8) * dayDifference;
+    console.log("Checking Wage", Wage);
 
+    
+
+    // Once you finish you want to push into local storage and then save. 
 
 }
 console.log("Example:", moment("12-25-1995", "MM-DD-YYYY").format("MMM Do, YYYY"))
